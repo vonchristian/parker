@@ -19,4 +19,8 @@ class Vehicle
   def generate_color
     Vehicle::VEHICLE_COLORS.sample
   end
+
+  def parked?
+    parking_status == true
+  end
 end

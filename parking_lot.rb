@@ -9,4 +9,10 @@ class ParkingLot
     @parkings = []
     @vehicles = []
   end
+
+  def create_slots(number_of_slots)
+    number_of_slots.times do
+      slots << Slot.new
+    end
+  end
 end

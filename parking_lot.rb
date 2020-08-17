@@ -20,6 +20,15 @@ class ParkingLot
     slots.select{ |slot| slot.available? }
   end
 
+  def status
+    puts "Slot No. | \tPlate Number | \tColour"
+    parkings.each do |parking|
+      slot_number = slots.find_index(parking.slot) + 1 #add 1 since array index starts at 0
+      puts "#{slot_number} | \t#{parking.vehicle.plate_number} | \t#{parking.vehicle.color}"
+    end
+    return
+  end
+
   def park(vehicle)
     slot    = available_slots.first
     parking = Parking.new(vehicle: vehicle, slot: slot)

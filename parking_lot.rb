@@ -59,9 +59,14 @@ class ParkingLot
     slot_numbers = []
 
     selected_parkings = parkings.select{ |p| p.vehicle.plate_number == plate_number }
-    selected_parkings.each do |parking|
-      slot_number = slots.find_index(parking.slot) + 1
-      slot_numbers << slot_number
+    if selected_parkings.count > 0
+      selected_parkings.each do |parking|
+        slot_number = slots.find_index(parking.slot) + 1
+        slot_numbers << slot_number
+      end
+      puts slot_numbers.join(',')
+    else
+      puts 'Not found'
     end
   end
 end

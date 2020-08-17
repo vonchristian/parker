@@ -4,4 +4,8 @@ class Slot
   def initialize(args={})
     @availability_status = args[:availability_status]
   end
+
+  def available?
+    availability_status == true
+  end
 end

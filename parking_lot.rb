@@ -1,13 +1,15 @@
 require_relative 'slot'
 require_relative 'parking'
+require_relative 'ticket'
 
 class ParkingLot
-  attr_accessor :slots, :parkings, :vehicles
+  attr_accessor :slots, :parkings, :vehicles, :issued_tickets
 
   def initialize(args={})
-    @slots    = []
-    @parkings = []
-    @vehicles = []
+    @slots          = []
+    @parkings       = []
+    @vehicles       = []
+    @issued_tickets = []
   end
 
   def create_slots(number_of_slots)
@@ -32,8 +34,10 @@ class ParkingLot
   def park(vehicle)
     slot    = available_slots.first
     parking = Parking.new(vehicle: vehicle, slot: slot)
+    ticket  = Ticket.new(parking: parking)
     parkings << parking
     vehicles << vehicle
+    issued_tickets << ticket
     parking.park!
   end
 

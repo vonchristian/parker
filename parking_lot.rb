@@ -44,4 +44,14 @@ class ParkingLot
     vehicles.delete_at(vehicles.index(vehicle))
     parkings.delete_at(parkings.index(parking))
   end
+
+  def slot_numbers_for_vehicles_with_color(color)
+    slot_numbers = []
+
+    parkings.select{ |p| p.vehicle.color == color }.each do |parking|
+      slot_number = slots.find_index(parking.slot) + 1
+      slot_numbers << slot_number
+    end
+    puts slot_numbers.join(',')
+  end
 end

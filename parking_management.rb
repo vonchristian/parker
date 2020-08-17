@@ -20,6 +20,8 @@ class ParkingManagement
   def park(plate_number)
     vehicle = vehicles.select{ |v| v.plate_number == plate_number }.first
 
+    return puts "Vehicle not found" if vehicle.nil?
+
     if parking_lot.available_slots.count > 0
       parking_lot.park(vehicle)
       parking     = parking_lot.parkings.select { |vh| vh.vehicle == vehicle }.first

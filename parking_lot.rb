@@ -19,4 +19,12 @@ class ParkingLot
   def available_slots
     slots.select{ |slot| slot.available? }
   end
+
+  def park(vehicle)
+    slot    = available_slots.first
+    parking = Parking.new(vehicle: vehicle, slot: slot)
+    parkings << parking
+    vehicles << vehicle
+    parking.park!
+  end
 end

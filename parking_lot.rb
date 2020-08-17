@@ -27,4 +27,12 @@ class ParkingLot
     vehicles << vehicle
     parking.park!
   end
+
+  def unpark(vehicle)
+    parking = parkings.select{ |vh| vh.vehicle == vehicle }.first
+    parking.unpark!
+
+    vehicles.delete_at(vehicles.index(vehicle))
+    parkings.delete_at(parkings.index(parking))
+  end
 end

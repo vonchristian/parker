@@ -23,13 +23,15 @@ class ParkingManagement
     return puts "Vehicle not found" if vehicle.nil?
     return puts "Vehicle already parked" if vehicle.parked?
 
-
+    parking_lot = parking_lots.first
     if parking_lot.available_slots.count > 0
       parking_lot.park(vehicle)
       parking     = parking_lot.parkings.select { |vh| vh.vehicle == vehicle }.first
       slot_number = parking_lot.slots.find_index(parking.slot) + 1 #add 1 since array index starts at 0
 
       puts "Allocated slot number: #{slot_number} to #{plate_number}."
+    elsif parking_lot.vehicles.include?(vehicle)
+      puts "Vehicle is already parked!"
     else
       puts "Sorry, parking lot is full"
     end

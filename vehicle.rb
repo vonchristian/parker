@@ -20,7 +20,11 @@ class Vehicle
     Vehicle::VEHICLE_COLORS.sample
   end
 
-  def parked?
-    parking_status == true
+  def status
+    if parked?
+      "Parked"
+    else
+      "Unparked"
+    end
   end
 end

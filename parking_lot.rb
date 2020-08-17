@@ -15,4 +15,8 @@ class ParkingLot
       slots << Slot.new
     end
   end
+
+  def available_slots
+    slots.select{ |slot| slot.available? }
+  end
 end

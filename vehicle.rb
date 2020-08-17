@@ -27,4 +27,7 @@ class Vehicle
       "Unparked"
     end
   end
+  def parked?
+    parking_status == true
+  end
 end

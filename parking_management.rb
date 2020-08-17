@@ -36,4 +36,14 @@ class ParkingManagement
       puts "Sorry, parking lot is full"
     end
   end
+
+  def leave(slot_number)
+    parking_lot = parking_lots.first
+    slot        = parking_lot.slots[slot_number -1] #less 1 since array index starts at 0
+    parking     = parking_lot.parkings.select{ |parking| parking.slot == slot }.first
+
+    parking_lot.unpark(parking.vehicle)
+
+    print "Slot #{slot_number} is now free"
+  end
 end

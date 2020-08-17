@@ -54,4 +54,14 @@ class ParkingLot
     end
     puts slot_numbers.join(',')
   end
+
+  def slot_numbers_for_plate_number(plate_number)
+    slot_numbers = []
+
+    selected_parkings = parkings.select{ |p| p.vehicle.plate_number == plate_number }
+    selected_parkings.each do |parking|
+      slot_number = slots.find_index(parking.slot) + 1
+      slot_numbers << slot_number
+    end
+  end
 end

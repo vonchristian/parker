@@ -1,5 +1,5 @@
 require_relative 'parking_lot'
-
+require_relative 'parking_cost'
 class ParkingManagement
   attr_accessor :parking_lots, :vehicles
 
@@ -44,9 +44,10 @@ class ParkingManagement
     slot_number = parking_lot.slots.find_index(parking.slot) +1
 
     parking_lot.unpark(parking.vehicle, departure_time)
+    amount = ParkingCost.new(duration: parking.duration_in_hours, hourly_rate: parking_lot.hourly_rate).amount
 
     puts "Vehicle with plate number #{plate_number} is now leaving. Departure time: #{departure_time}."
-    puts "Duration: #{parking.duration_in_hours} hour/s"
+    puts "Duration: #{parking.duration_in_hours} hour/s: Paid: P#{amount}"
     puts"Slot #{slot_number} is now free"
   end
 end

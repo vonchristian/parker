@@ -4,7 +4,7 @@ class Parking
   def initialize(args={})
     @vehicle        = args.fetch(:vehicle)
     @slot           = args.fetch(:slot)
-    @entry_time     = args[:entry_time]
+    @entry_time     = args[:entry_time] || generate_entry_time
     @departure_time = args[:departure_time]
   end
 
@@ -16,5 +16,9 @@ class Parking
   def unpark!
     vehicle.parking_status = false
     slot.availability_status = true
+  end
+
+  def generate_entry_time
+    Time.now
   end
 end

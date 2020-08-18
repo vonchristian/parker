@@ -3,6 +3,6 @@ class Ticket
 
   def initialize(args={})
     @parking = args.fetch(:parking)
-    @price   = 100
+    @price   = args[:price]
   end
 end

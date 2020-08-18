@@ -5,7 +5,7 @@ class Parking
     @vehicle        = args.fetch(:vehicle)
     @slot           = args.fetch(:slot)
     @entry_time     = args[:entry_time] || generate_entry_time
-    @departure_time = args[:departure_time]
+    @departure_time = args[:departure_time] || generate_departure_time
   end
 
   def park!
@@ -19,6 +19,10 @@ class Parking
   end
 
   def generate_entry_time
+    Time.now
+  end
+
+  def generate_departure_time
     Time.now
   end
 end

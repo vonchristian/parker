@@ -46,6 +46,7 @@ class ParkingManagement
     parking_lot.unpark(parking.vehicle, departure_time)
 
     puts "Vehicle with plate number #{plate_number} is now leaving. Departure time: #{departure_time}."
+    puts "Duration: #{parking.duration_in_hours} hour/s"
     puts"Slot #{slot_number} is now free"
   end
 end

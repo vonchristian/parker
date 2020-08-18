@@ -1,3 +1,4 @@
+require 'time'
 class Parking
   attr_accessor :vehicle, :slot, :entry_time, :departure_time
 
@@ -25,5 +26,12 @@ class Parking
 
   def generate_departure_time
     Time.now
+  end
+
+  def duration_in_hours
+    entry     = Time.parse(entry_time.to_s)
+    departure = Time.parse(departure_time.to_s)
+
+    ((departure - entry) / 3600).round(2)
   end
 end

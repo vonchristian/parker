@@ -65,8 +65,8 @@ class ParkingLot
     parking = parkings.select{ |vh| vh.vehicle == vehicle }.first
     parking.unpark!(departure_time)
 
-    vehicles.delete_at(vehicles.index(vehicle))
-    parkings.delete_at(parkings.index(parking))
+    # vehicles.delete_at(vehicles.index(vehicle))
+    # parkings.delete_at(parkings.index(parking))
   end
 
   def slot_numbers_for_vehicles_with_color(color)

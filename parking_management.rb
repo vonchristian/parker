@@ -44,7 +44,12 @@ class ParkingManagement
     slot_number = parking_lot.slots.find_index(parking.slot) +1
 
     parking_lot.unpark(parking.vehicle, departure_time)
-    amount = ParkingCost.new(duration: parking.duration_in_hours, hourly_rate: parking_lot.hourly_rate, grace_period_in_minutes: parking_lot.grace_period_in_minutes).amount
+
+    amount = ParkingCost.new(
+      duration:                parking.duration_in_hours,
+      hourly_rate:             parking_lot.hourly_rate,
+      grace_period_in_minutes: parking_lot.grace_period_in_minutes).amount
+
     ticket = parking_lot.issued_tickets.select{|ticket| ticket.parking == parking }.first
     ticket.price = amount
     puts "Vehicle with plate number #{plate_number} is now leaving. Departure time: #{departure_time}."

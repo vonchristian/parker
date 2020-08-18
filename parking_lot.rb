@@ -33,6 +33,10 @@ class ParkingLot
     return
   end
 
+  def total_earnings
+    issued_tickets.map{|ticket| ticket.price.to_f }.sum
+  end
+
   def park(vehicle, entry_time)
     slot    = available_slots.first
     parking = Parking.new(vehicle: vehicle, slot: slot, entry_time: entry_time)

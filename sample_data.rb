@@ -3,7 +3,7 @@ require_relative 'vehicle_management'
 require_relative 'vehicle'
 
     parking_manager = ParkingManagement.new
-    parking_manager.create_parking_lot(6)
+    parking_manager.create_parking_lot(6, 10, 0)
     parking_lot = parking_manager.parking_lots.first
 
     vehicle_management = VehicleManagement.new

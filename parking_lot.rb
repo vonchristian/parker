@@ -39,6 +39,14 @@ class ParkingLot
     return
   end
 
+  def parking_summary
+    puts "Plate No. \t | Color  \t | Entry \t | Departure"
+    parkings.each do |parking|
+      puts "#{parking.vehicle.plate_number} \t | #{parking.vehicle.color} \t | #{parking.entry_time} \t | #{parking.departure_time}"
+    end
+    return
+  end
+
   def total_earnings
     issued_tickets.map{|ticket| ticket.price.to_f }.sum
   end

@@ -17,7 +17,7 @@ class ParkingManagement
     puts "Created a parking lot with #{number_of_slots} slots, with rate of P#{hourly_rate}/hour and grace period of #{grace_period_in_minutes} minutes."
   end
 
-  def park(plate_number)
+  def park(plate_number, entry_time)
     vehicle = vehicles.select{ |v| v.plate_number == plate_number }.first
 
     return puts "Vehicle not found" if vehicle.nil?
@@ -25,11 +25,11 @@ class ParkingManagement
 
     parking_lot = parking_lots.first
     if parking_lot.available_slots.count > 0
-      parking_lot.park(vehicle)
+      parking_lot.park(vehicle, entry_time)
       parking     = parking_lot.parkings.select { |vh| vh.vehicle == vehicle }.first
       slot_number = parking_lot.slots.find_index(parking.slot) + 1 #add 1 since array index starts at 0
 
-      puts "Allocated slot number: #{slot_number} to #{plate_number}."
+      puts "Allocated slot number: #{slot_number} to #{plate_number}. Entry time #{entry_time}."
     elsif parking_lot.vehicles.include?(vehicle)
       puts "Vehicle is already parked!"
     else

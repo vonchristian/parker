@@ -33,9 +33,9 @@ class ParkingLot
     return
   end
 
-  def park(vehicle)
+  def park(vehicle, entry_time)
     slot    = available_slots.first
-    parking = Parking.new(vehicle: vehicle, slot: slot)
+    parking = Parking.new(vehicle: vehicle, slot: slot, entry_time: entry_time)
     ticket  = Ticket.new(parking: parking)
     parkings << parking
     vehicles << vehicle

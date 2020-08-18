@@ -19,12 +19,12 @@ require_relative 'vehicle'
     parking_manager.vehicles << vehicle_management.vehicles
     parking_manager.vehicles.flatten!
 
-    parking_manager.park('ABC-1234')
-    parking_manager.park('ABC-5032')
-    parking_manager.park('ABC-3458')
-    parking_manager.park('ABC-0001')
-    parking_manager.park('ABC-9999')
-    parking_manager.park('ABC-1233')
+    parking_manager.park('ABC-1234', '10:00 AM')
+    parking_manager.park('ABC-5032', '11:00 AM')
+    parking_manager.park('ABC-3458', '11:15 AM')
+    parking_manager.park('ABC-0001', '11:30 AM')
+    parking_manager.park('ABC-9999', '11:45 AM')
+    parking_manager.park('ABC-1233', '11:50 AM')
 
     parking_manager.leave(4)
 
@@ -33,8 +33,8 @@ require_relative 'vehicle'
 
     parking_lot.status
     puts "\n"
-    parking_manager.park('ABC-4545')
-    parking_manager.park('ABC-4546')
+    parking_manager.park('ABC-4545', '1:00 PM')
+    parking_manager.park('ABC-4546', '2:00 PM')
     puts "\n"
 
     vehicle_management.plate_number_for_vehicles_with_color('White')

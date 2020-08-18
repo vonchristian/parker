@@ -16,6 +16,8 @@ require_relative 'vehicle'
     vehicle_management.vehicles << Vehicle.new(plate_number: 'ABC-1233', color: 'Blue')
     vehicle_management.vehicles << Vehicle.new(plate_number: 'ABC-4545', color: 'Gray')
     vehicle_management.vehicles << Vehicle.new(plate_number: 'ABC-4546', color: 'Gray')
+    vehicle_management.vehicles << Vehicle.new(plate_number: 'ABC-4547', color: 'Black')
+
 
     parking_manager.vehicles << vehicle_management.vehicles
     parking_manager.vehicles.flatten!
@@ -30,6 +32,8 @@ require_relative 'vehicle'
     puts "\n"
 
     parking_manager.leave('ABC-0001', '1:30 PM')
+    parking_manager.leave('ABC-5032', '2:30 PM')
+
 
     puts "\n"
     puts "\n"
@@ -38,6 +42,8 @@ require_relative 'vehicle'
     puts "\n"
     parking_manager.park('ABC-4545', '1:00 PM')
     parking_manager.park('ABC-4546', '2:00 PM')
+    parking_manager.park('ABC-4547', '2:10 PM')
+
     puts "\n"
 
     vehicle_management.plate_number_for_vehicles_with_color('White')
@@ -49,4 +55,6 @@ require_relative 'vehicle'
     parking_lot.slot_numbers_for_plate_number('ABC-9999')
     puts "\n"
     parking_lot.slot_numbers_for_plate_number('ABC-NOT-FOUND')
-
+    puts "\n"
+    puts 'Parking Summary'
+    parking_lot.parking_summary

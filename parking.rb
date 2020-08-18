@@ -1,9 +1,11 @@
 class Parking
-  attr_accessor :vehicle, :slot
+  attr_accessor :vehicle, :slot, :entry_time, :departure_time
 
   def initialize(args={})
-    @vehicle = args.fetch(:vehicle)
-    @slot    = args.fetch(:slot)
+    @vehicle        = args.fetch(:vehicle)
+    @slot           = args.fetch(:slot)
+    @entry_time     = args[:entry_time]
+    @departure_time = args[:departure_time]
   end
 
   def park!

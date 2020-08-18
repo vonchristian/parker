@@ -26,7 +26,9 @@ require_relative 'vehicle'
     parking_manager.park('ABC-9999', '11:45 AM')
     parking_manager.park('ABC-1233', '11:50 AM')
 
-    parking_manager.leave(4)
+    puts "\n"
+
+    parking_manager.leave('ABC-0001')
 
     puts "\n"
     puts "\n"

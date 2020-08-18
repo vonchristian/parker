@@ -37,13 +37,15 @@ class ParkingManagement
     end
   end
 
-  def leave(slot_number)
+  def leave(plate_number)
+    vehicle     = vehicles.select{ |v| v.plate_number == plate_number }.first
     parking_lot = parking_lots.first
-    slot        = parking_lot.slots[slot_number -1] #less 1 since array index starts at 0
-    parking     = parking_lot.parkings.select{ |parking| parking.slot == slot }.first
+    parking     = parking_lot.parkings.select { |vh| vh.vehicle == vehicle }.first
+    slot_number = parking_lot.slots.find_index(parking.slot) +1
 
     parking_lot.unpark(parking.vehicle)
 
-    print "Slot #{slot_number} is now free"
+    puts "Vehicle with plate number #{plate_number} is now leaving."
+    puts"Slot #{slot_number} is now free"
   end
 end

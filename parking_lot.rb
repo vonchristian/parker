@@ -3,13 +3,14 @@ require_relative 'parking'
 require_relative 'ticket'
 
 class ParkingLot
-  attr_accessor :slots, :parkings, :vehicles, :issued_tickets
+  attr_accessor :slots, :parkings, :vehicles, :issued_tickets, :hourly_rate
 
   def initialize(args={})
     @slots          = []
     @parkings       = []
     @vehicles       = []
     @issued_tickets = []
+    @hourly_rate    = args.fetch(:hourly_rate)
   end
 
   def create_slots(number_of_slots)

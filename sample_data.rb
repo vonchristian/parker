@@ -4,6 +4,7 @@ require_relative 'vehicle'
 
     parking_manager = ParkingManagement.new
     parking_manager.create_parking_lot(6, 10, 0)
+    puts "\n"
     parking_lot = parking_manager.parking_lots.first
 
     vehicle_management = VehicleManagement.new
@@ -28,7 +29,7 @@ require_relative 'vehicle'
 
     puts "\n"
 
-    parking_manager.leave('ABC-0001')
+    parking_manager.leave('ABC-0001', '1:30 PM')
 
     puts "\n"
     puts "\n"

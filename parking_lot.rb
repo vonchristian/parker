@@ -43,9 +43,9 @@ class ParkingLot
     parking.park!
   end
 
-  def unpark(vehicle)
+  def unpark(vehicle, departure_time)
     parking = parkings.select{ |vh| vh.vehicle == vehicle }.first
-    parking.unpark!
+    parking.unpark!(departure_time)
 
     vehicles.delete_at(vehicles.index(vehicle))
     parkings.delete_at(parkings.index(parking))

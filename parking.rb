@@ -13,9 +13,10 @@ class Parking
     vehicle.parking_status = true
   end
 
-  def unpark!
+  def unpark!(departure_time)
     vehicle.parking_status = false
     slot.availability_status = true
+    departure_time = departure_time
   end
 
   def generate_entry_time

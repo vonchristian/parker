@@ -37,15 +37,15 @@ class ParkingManagement
     end
   end
 
-  def leave(plate_number)
+  def leave(plate_number, departure_time)
     vehicle     = vehicles.select{ |v| v.plate_number == plate_number }.first
     parking_lot = parking_lots.first
     parking     = parking_lot.parkings.select { |vh| vh.vehicle == vehicle }.first
     slot_number = parking_lot.slots.find_index(parking.slot) +1
 
-    parking_lot.unpark(parking.vehicle)
+    parking_lot.unpark(parking.vehicle, departure_time)
 
-    puts "Vehicle with plate number #{plate_number} is now leaving."
+    puts "Vehicle with plate number #{plate_number} is now leaving. Departure time: #{departure_time}."
     puts"Slot #{slot_number} is now free"
   end
 end

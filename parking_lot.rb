@@ -25,6 +25,12 @@ class ParkingLot
   end
 
   def status
+    puts "Number of Slots: #{slots.count}"
+    puts "Hourly Rate: P#{hourly_rate}"
+    puts "Grace Period: #{grace_period_in_minutes} minutes"
+    puts "Number of Vehicles: #{vehicles.count}"
+    puts "Total Earnings: P#{total_earnings}"
+    puts "\n"
     puts "Slot No. | \tPlate Number | \tColour"
     parkings.each do |parking|
       slot_number = slots.find_index(parking.slot) + 1 #add 1 since array index starts at 0

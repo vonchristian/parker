@@ -39,5 +39,11 @@ loop do
     parking_manager.park(vehicle.plate_number, entry_time)
     puts "\n"
 
+  when /\Aleave\z/i
+    plate_number   = params[0]
+    departure_time = params[1]
+    parking_manager.leave(plate_number, departure_time)
+    puts "\n"
+
 
 end

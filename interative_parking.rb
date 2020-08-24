@@ -66,4 +66,9 @@ loop do
     parking_manager.parking_lots.first.slot_numbers_for_plate_number(plate_number)
     puts "\n"
 
+  when /\Alog\z/i
+    puts 'Parking Summary:'
+    parking_manager.parking_lots.first.parking_summary
+    puts "\n"
+
 end

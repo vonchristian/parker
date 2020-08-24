@@ -49,5 +49,9 @@ loop do
     parking_manager.parking_lots.first.status
     puts "\n"
 
+  when /\Aplate_number_for_vehicles_with_color\z/i
+    color = params[0]
+    vehicle_management.plate_number_for_vehicles_with_color(color)
+    puts "\n"
 
 end

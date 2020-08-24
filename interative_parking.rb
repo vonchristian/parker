@@ -10,7 +10,7 @@ puts 'create_parking_lot(slots, hourly_rate, grace_period)'
 puts 'park(plate_number, vehicle_color, entry_time)'
 puts 'leave(plate_number, departure time)'
 puts 'status'
-puts 'plate_number_for_vehicles_with_color(color)'
+puts 'plate_numbers_for_vehicles_with_color(color)'
 puts 'slot_numbers_for_vehicles_with_color(color)'
 puts 'slot_numbers_for_plate_number(plate_number)'
 puts 'log'
@@ -55,7 +55,7 @@ loop do
     parking_manager.parking_lots.first.status
     puts "\n"
 
-  when /\Aplate_number_for_vehicles_with_color\z/i
+  when /\Aplate_numbers_for_vehicles_with_color\z/i
     color = params[0]
     vehicle_management.plate_number_for_vehicles_with_color(color)
     puts "\n"
@@ -68,7 +68,7 @@ loop do
 
   when /\Aslot_numbers_for_plate_number\z/i
     plate_number = params[0]
-    print 'Plate Numbers: '
+    print 'Slot Numbers: '
     parking_manager.parking_lots.first.slot_numbers_for_plate_number(plate_number)
     puts "\n"
 

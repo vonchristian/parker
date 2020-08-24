@@ -26,5 +26,18 @@ loop do
       grace_period_in_minutes: grace_period_in_minutes)
       puts "\n"
 
+  when /\Apark\z/i
+    plate_number = params[0]
+    color        = params[1]
+    entry_time   = params[2]
+
+    vehicle = Vehicle.new(plate_number: plate_number, color: color)
+    vehicle_management.vehicles << vehicle
+    parking_manager.vehicles    << vehicle
+    parking_manager.vehicles.flatten!
+    vehicle_management.vehicles.flatten!
+    parking_manager.park(vehicle.plate_number, entry_time)
+    puts "\n"
+
 
 end

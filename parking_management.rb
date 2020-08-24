@@ -43,7 +43,7 @@ class ParkingManagement
     parking     = parking_lot.parkings.select { |vh| vh.vehicle == vehicle }.first
     slot_number = parking_lot.slots.find_index(parking.slot) +1
 
-    parking_lot.unpark(parking.vehicle, departure_time)
+    parking.unpark!(departure_time)
 
     amount = ParkingCost.new(
       duration:                parking.duration_in_hours,

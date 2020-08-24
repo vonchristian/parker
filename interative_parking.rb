@@ -8,6 +8,12 @@ vehicle_management = VehicleManagement.new
 puts 'Available commands:'
 puts 'create_parking_lot(slots, hourly_rate, grace_period)'
 puts 'park(plate_number, vehicle_color, entry_time)'
+puts 'leave(plate_number, departure time)'
+puts 'status'
+puts 'plate_number_for_vehicles_with_color(color)'
+puts 'slot_numbers_for_vehicles_with_color(color)'
+puts 'slot_numbers_for_plate_number(plate_number)'
+puts 'log'
 puts "\n"
 
 loop do

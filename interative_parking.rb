@@ -45,5 +45,9 @@ loop do
     parking_manager.leave(plate_number, departure_time)
     puts "\n"
 
+  when /\Astatus\z/i
+    parking_manager.parking_lots.first.status
+    puts "\n"
+
 
 end

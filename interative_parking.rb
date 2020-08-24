@@ -54,4 +54,10 @@ loop do
     vehicle_management.plate_number_for_vehicles_with_color(color)
     puts "\n"
 
+  when /\Aslot_numbers_for_vehicles_with_color\z/i
+    color = params[0]
+    print 'Slot Numbers: '
+    parking_manager.parking_lots.first.slot_numbers_for_vehicles_with_color(color)
+    puts "\n"
+
 end

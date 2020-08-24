@@ -31,18 +31,18 @@ class ParkingLot
     puts "Number of Vehicles: #{vehicles.count}"
     puts "Total Earnings: P#{total_earnings}"
     puts "\n"
-    puts "Slot No. | \tPlate Number | \tColour"
+    puts "Slot No. \t  Plate #  \t Colour \t  Status"
     parkings.each do |parking|
       slot_number = slots.find_index(parking.slot) + 1 #add 1 since array index starts at 0
-      puts "#{slot_number} | \t#{parking.vehicle.plate_number} | \t#{parking.vehicle.color}"
+      puts "#{slot_number} \t\t #{parking.vehicle.plate_number}  \t\t #{parking.vehicle.color} \t\t #{parking.vehicle.status}"
     end
     return
   end
 
   def parking_summary
-    puts "Plate No. \t | Color  \t | Entry \t | Departure"
+    puts "Plate #. \t  | Color  \t | Entry \t  | Departure"
     parkings.each do |parking|
-      puts "#{parking.vehicle.plate_number} \t | #{parking.vehicle.color} \t | #{parking.entry_time} \t | #{parking.departure_time}"
+      puts "#{parking.vehicle.plate_number} \t \t  #{parking.vehicle.color} \t  #{parking.entry_time} \t  #{parking.departure_time}"
     end
     return
   end

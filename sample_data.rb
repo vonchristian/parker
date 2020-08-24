@@ -3,7 +3,7 @@ require_relative 'vehicle_management'
 require_relative 'vehicle'
 
     parking_manager = ParkingManagement.new
-    parking_manager.create_parking_lot(6, 25, 15)
+    parking_manager.create_parking_lot(number_of_slots: 6, hourly_rate: 25, grace_period_in_minutes: 15)
     puts "\n"
     parking_lot = parking_manager.parking_lots.first
 

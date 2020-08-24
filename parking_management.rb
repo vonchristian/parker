@@ -8,7 +8,7 @@ class ParkingManagement
     @vehicles     = []
   end
 
-  def create_parking_lot(number_of_slots, hourly_rate, grace_period_in_minutes)
+  def create_parking_lot(number_of_slots:, hourly_rate:, grace_period_in_minutes:)
     parking_lot       = ParkingLot.new(hourly_rate: hourly_rate, grace_period_in_minutes: grace_period_in_minutes)
     parking_lots << parking_lot
 

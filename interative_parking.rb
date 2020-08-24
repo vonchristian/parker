@@ -71,4 +71,8 @@ loop do
     parking_manager.parking_lots.first.parking_summary
     puts "\n"
 
+  else
+    puts 'Invalid command'
+    puts "\n"
+  end
 end
